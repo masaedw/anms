@@ -140,11 +140,27 @@ type vPair struct {
 	v float64
 }
 
+// Option Optional arguments
+type Option struct {
+	Iterations int
+	Ftol       float64
+	Xtol       float64
+}
+
+// DefaultOption default option
+func DefaultOption() Option {
+	return Option{
+		Iterations: 100000,
+		Ftol:       1.0e-8,
+		Xtol:       1.0e-8,
+	}
+}
+
 // Execute Adaptive Nelder-Mead Simplex (ANMS) algorithm
-func Execute(f Function, x0 Vec) (Vec, float64, error) {
-	iterations := 1000000
-	ftol := 1.0e-8
-	xtol := 1.0e-8
+func Execute(f Function, x0 Vec, option Option) (Vec, float64, error) {
+	iterations := option.Iterations
+	ftol := option.Ftol
+	xtol := option.Xtol
 
 	n := len(x0)
 
