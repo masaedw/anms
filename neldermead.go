@@ -35,9 +35,8 @@ func (x Vec) add(v Vec) Vec {
 type Function func(x Vec) float64
 
 func (f Function) apply(x []Vec) []float64 {
-	n := len(x)
-	r := make([]float64, n)
-	for i := 0; i < n; i++ {
+	r := make([]float64, len(x))
+	for i := range x {
 		r[i] = f(x[i])
 	}
 	return r
