@@ -156,8 +156,13 @@ func DefaultOption() Option {
 	}
 }
 
-// Execute Adaptive Nelder-Mead Simplex (ANMS) algorithm
-func Execute(f Function, x0 Vec, option Option) (Vec, float64, error) {
+// Anms Adaptive Nelder-Mead Simplex (ANMS) algorithm
+func Anms(f Function, x0 Vec) (Vec, float64, error) {
+	return AnmsWithOption(f, x0, DefaultOption())
+}
+
+// AnmsWithOption Adaptive Nelder-Mead Simplex (ANMS) algorithm
+func AnmsWithOption(f Function, x0 Vec, option Option) (Vec, float64, error) {
 	iterations := option.Iterations
 	ftol := option.Ftol
 	xtol := option.Xtol
