@@ -1,4 +1,4 @@
-package neldermead
+package anms
 
 import (
 	"math"
