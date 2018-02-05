@@ -22,7 +22,7 @@ func Test1(t *testing.T) {
 		return math.Pow(a-x[0], 2) + b*math.Pow(x[1]-math.Pow(x[0], 2), 2)
 	}
 	x0 := []float64{0, 0}
-	x, fmin, err := AnmsWithOption(f, x0, DefaultOption())
+	x, fmin, err := Anms(f, x0)
 	if err != nil {
 		t.Error(err)
 	}
